@@ -35,5 +35,5 @@ export default async function handler(
   } catch (err: any) {
     res.status(500).json({ error: err.message || 'Server error' });
     return;
-  }
+  } // end try-catch
 }
