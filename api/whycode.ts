@@ -5,12 +5,16 @@ const openai = new OpenAI({
   apiKey: process.env['OPENAI_API_KEY']!,
 });
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function handler(
+  req: VercelRequest,
+  res: VercelResponse
+) {
   try {
     const { code, action } = req.body;
 
     if (!code || !action) {
-      return res.status(400).json({ error: 'Missing parameters' });
+      res.status(400).json({ error: 'Missing parameters' });
+      return;
     }
 
     const prompt =
@@ -26,8 +30,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const content =
       completion.choices[0]?.message?.content || 'No content returned';
 
-    return res.status(200).json({ output: content });
+    res.status(200).json({ output: content });
+    return;
   } catch (err: any) {
-    return res.status(500).json({ error: err.message || 'Server error' });
+    res.status(500).json({ error: err.message || 'Server error' });
+    return;
   }
 }
