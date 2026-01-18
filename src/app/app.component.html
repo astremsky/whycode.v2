@@ -1,0 +1,21 @@
+<div class="whycode-root" [class.dark]="darkMode">
+  <header>
+    <h1 (click)="router.navigate(['/'])" style="cursor:pointer;">
+      WhyCode.ai
+      <!-- <span class="badge">Dev Tool</span> -->
+    </h1>
+    <button class="toggle" (click)="darkMode = !darkMode">
+      {{ darkMode ? '☀️ Go to the light' : '🌙 Go to the dark' }}
+    </button>
+  </header>
+
+  <router-outlet></router-outlet>
+
+  <footer class="whycode-footer" [class.dark]="darkMode">
+    <span>
+      Our goal is to develop AI systems that can serve as your coding mentor. We welcome your feedback to enhance our efforts.
+      Find more information <a routerLink="/about"><b><u>here</u></b></a>.
+    </span>
+    <span class="footer-brand">©whycode.ai 2022–{{ currentYear }}</span>
+  </footer>
+</div>

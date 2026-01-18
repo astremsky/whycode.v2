@@ -1,0 +1,328 @@
+$bg-dark: #181c20;
+$bg-light: #f5f5f5;
+$panel-dark: #23272e;
+$panel-light: #fff;
+$text-dark: #e0e0e0;
+$text-light: #222;
+$accent: #00bcd4;
+$accent2: #7f53ac;
+$badge-bg: #333950;
+$badge-color: #fff;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+.whycode-root {
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  background: $bg-light;
+  color: $text-light;
+  font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', monospace;
+  padding: 0;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  flex-direction: column;
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 5rem 1rem;
+    background: $panel-light;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.10);
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        
+        .badge {
+            background: linear-gradient(90deg, $accent 0%, $accent2 100%);
+            color: $badge-color;
+            font-size: 0.8rem;
+            padding: 0.2em 0.7em;
+            border-radius: 1em;
+            margin: 1em 1em 0 1em;
+            font-weight: 400;
+            box-shadow: 0 2px 8px rgba(0,188,212,0.10);
+        }
+    }
+
+    .toggle {
+        background: linear-gradient(90deg, $accent 0%, $accent2 100%);
+        margin: 5px;
+        border: none;
+        color: #fff;
+        border-radius: 1.5em;
+        padding: 0.3em 1.2em;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 8px rgba(0,188,212,0.10);
+        &:hover {
+            background: linear-gradient(90deg, $accent2 0%, $accent 100%);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(0,188,212,0.15);
+        }
+    }
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1.2rem 0.5rem 0.7rem;
+
+        h1 {
+            text-align: center;
+            width: 100%;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .toggle {
+            margin-top: 1em;
+            width: 100%;
+            max-width: 220px;
+            display: block;
+        }
+    }
+}
+
+  .editor-section, .output-section {
+    width: 100%;
+    background: $panel-light;
+    border-radius: 18px;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.10);
+    margin: 1.5rem auto;
+    max-width: 1000px;
+    padding: 2rem;
+    transition: background 0.2s;
+
+  }
+
+  .code-input {
+    width: 97%;
+    @media (max-width: 600px) {
+      width: 100%;
+    }
+    min-height: 180px;
+    background: #f7f7fa;
+    color: $text-light;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1em;
+    font-family: inherit;
+    padding: 1em;
+    margin-bottom: 1em;
+    resize: vertical;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 2px 8px rgba(0,188,212,0.05);
+    &:focus {
+      outline: 2px solid $accent;
+      background: #e0e7ef;
+    }
+  }
+
+.actions { 
+    display: flex;
+    gap: 1em;
+    margin-bottom: 0.5em;
+    button {
+        background: linear-gradient(90deg, $accent 0%, $accent2 100%);
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        padding: 0.7em 1.5em;
+        font-size: 1em;
+        font-family: inherit;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 8px rgba(0,188,212,0.10);
+        
+        &:hover, &:focus {
+            background: linear-gradient(90deg, $accent2 0%, $accent 100%);
+            box-shadow: 0 4px 16px rgba(0,188,212,0.15);
+        }
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+
+    @media (max-width: 600px) {
+        justify-content: center;
+    }
+}
+
+.output-area {
+  background: #f7f7fa;
+  color: $text-light;
+  border-radius: 10px;
+  padding: 1em;
+  min-height: 120px;
+  font-size: 1em;
+  font-family: inherit;
+  margin-top: 0.5em;
+  box-shadow: 0 2px 8px rgba(0,188,212,0.05);
+  display: flex;           // ← make it a flex container
+  align-items: flex-start;     // ← vertically align to the top
+  justify-content: flex-start; // ← horizontally align text to the left
+  text-align: left;      // ← wrap text nicely
+
+  pre {
+    margin: 0;
+    font-family: inherit;
+    font-size: 1em;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  strong {
+    color: $accent;
+    font-size: 1.1em;
+  }
+}
+
+  // DARK MODE OVERRIDES
+  &.dark {
+    background: linear-gradient(120deg, #23272e 0%, #181c20 100%);
+    color: $text-dark;
+
+    header {
+      background: linear-gradient(90deg, #23272e 60%, #2b5876 100%);
+      color: $text-dark;
+    }
+
+    .editor-section, .output-section {
+      background: linear-gradient(120deg, $panel-dark 60%, #23272e 100%);
+      color: $text-dark;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.25);
+    }
+
+    .code-input {
+      background: linear-gradient(120deg, #23272e 60%, #181c20 100%);
+      color: #e0e0e0;
+      border: 1px solid #444;
+      &:focus {
+        outline: 2px solid $accent;
+        background: linear-gradient(120deg, #23272e 80%, #181c20 100%);
+      }
+    }
+
+    .output-area {
+      background: linear-gradient(120deg, #181c20 60%, #23272e 100%);
+      color: #e0e0e0;
+    }
+  }
+
+  > header{
+    flex-shrink: 0;
+  }
+
+  > footer.whycode-footer {
+    margin-top: auto;
+    flex-shrink: 0;
+  }
+}
+
+.whycode-footer {
+  width: 100%;
+  margin-top: 3rem;
+  padding: 1.5rem 0 1rem 0;
+  text-align: center;
+  font-size: 1em;
+  font-family: inherit;
+  background: $panel-light; // Light background for light mode
+  color: $text-light;       // Dark text for light mode
+  border-top: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  transition: background 0.2s, color 0.2s;
+
+  a {
+    color: $accent;
+    text-decoration: underline;
+    font-weight: 600;
+    &:hover {
+      color: $accent2;
+    }
+  }
+
+  .footer-brand {
+    font-size: 1.05em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: $accent;
+    margin-top: 0.2em;
+  }
+
+  &.dark {
+    background: linear-gradient(90deg, #181c20 0%, #23272e 100%);
+    color: #e0e0e0;
+    border-top: 1px solid #333;
+    .footer-brand {
+      color: $accent;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .whycode-root {
+    width: 100vw;
+    overflow-x: hidden;
+
+    header,
+    .editor-section,
+    .output-section,
+    .whycode-footer {
+      width: 100vw !important;
+      max-width: 100vw !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      border-radius: 0 !important;
+      box-sizing: border-box;
+    }
+
+    .editor-section, .output-section {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+  }
+
+  .whycode-footer {
+    padding: 1em 0.5em 0.7em 0.5em;
+    font-size: 0.95em;
+    .footer-brand {
+      font-size: 1em;
+    }
+  }
+}
+
+.whycode-root,
+.whycode-root header,
+.whycode-root .editor-section,
+.whycode-root .output-section,
+.whycode-root .code-input,
+.whycode-root .output-area,
+.whycode-footer {
+  transition:
+    background 1s cubic-bezier(0.4, 0, 0.2, 1),
+    color 1s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 1s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 1s cubic-bezier(0.4, 0, 0.2, 1);
+}

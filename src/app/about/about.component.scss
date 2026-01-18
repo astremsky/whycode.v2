@@ -1,0 +1,40 @@
+.about-root {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 70vh;
+  padding: 2rem 1rem;
+  color: inherit;
+}
+
+.about-content {
+  background: linear-gradient(120deg, #23272e 60%, #181c20 100%);
+  color: #e0e0e0;
+  border-radius: 16px;
+  max-width: 700px;
+  width: 100%;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 2px 24px rgba(0,188,212,0.10);
+
+  h2 {
+    color: #00bcd4;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    font-family: inherit;
+  }
+
+  a {
+    color: #00bcd4;
+    text-decoration: underline;
+    &:hover {
+      color: #7f53ac;
+    }
+  }
+}

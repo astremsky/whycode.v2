@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+$bg-dark: #181c20;
+$bg-light: #f5f5f5;
+$panel-dark: #23272e;
+$panel-light: #fff;
+$text-dark: #e0e0e0;
+$text-light: #222;
+$accent: #00bcd4;
+$accent2: #7f53ac;
+$badge-bg: #333950;
+$badge-color: #fff;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+body {
+    margin: 0 !important;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+.whycode-root,
+.whycode-footer {
+  /* ...move all your global styles here... */
+}

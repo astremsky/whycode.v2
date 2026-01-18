@@ -1,0 +1,25 @@
+<section class="editor-section">
+  <textarea
+    [(ngModel)]="code"
+    placeholder="Paste your code here..."
+    rows="12"
+    spellcheck="false"
+    autocomplete="off"
+    autocorrect="off"
+    class="code-input"
+  ></textarea>
+  <div class="actions">
+    <button (click)="submit('explain')" [disabled]="loading">Explain code</button>
+    <button (click)="submit('improve')" [disabled]="loading">Improve code</button>
+  </div>
+</section>
+
+<section class="output-section" *ngIf="loading || displayedResult">
+  <div class="output-area">
+    <strong *ngIf="loading">Thinking...</strong>
+    <pre
+      *ngIf="!loading && displayedResult"
+      [innerText]="displayedResult"
+    ></pre>
+  </div>
+</section>
