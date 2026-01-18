@@ -5,10 +5,7 @@ const openai = new OpenAI({
   apiKey: process.env['OPENAI_API_KEY']!,
 });
 
-export default async function handler(
-  req: VercelRequest,
-  res: VercelResponse
-) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     const { code, action } = req.body;
 
@@ -29,8 +26,8 @@ export default async function handler(
     const content =
       completion.choices[0]?.message?.content || 'No content returned';
 
-    res.status(200).json({ output: content });
+    return res.status(200).json({ output: content });
   } catch (err: any) {
-    res.status(500).json({ error: err.message || 'Server error' });
+    return res.status(500).json({ error: err.message || 'Server error' });
   }
 }
